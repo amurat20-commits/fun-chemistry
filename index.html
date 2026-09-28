@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fun Chemistry by Aida</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="decor" aria-hidden="true">
+    <span class="molecule">⌬</span><span class="flask">⚗</span><span class="atom">◉</span>
+    <span class="formula">H₂O</span><span class="formula f2">C₆H₆</span><span class="atom a2">◎</span>
+    <span class="dots">•••</span>
+  </div>
+
+  <header class="header">
+    <a class="brand" href="/">
+      <div class="brand-icon">⚗</div>
+      <div><strong>Fun Chemistry</strong><small>Aidаның практикалық жұмыстары ✨</small></div>
+    </a>
+    <button class="btn primary" onclick="openUpload()">＋ Файл қосу</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">CHEMISTRY • STUDY • SHARE</div>
+        <h1>Fun Chemistry <span>🧪</span></h1>
+        <p>Химия бойынша оқу материалдарына арналған ортақ кеңістік.</p>
+      </div>
+      <div class="hero-orbit">⚛</div>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><span>Барлық файл</span><b id="total">0</b></div>
+      <div class="stat"><span>PDF</span><b id="pdf">0</b></div>
+      <div class="stat"><span>Құжаттар</span><b id="documents">0</b></div>
+      <div class="stat"><span>Суреттер</span><b id="images">0</b></div>
+    </section>
+
+    <section class="upload-zone" id="dropzone">
+      <div class="upload-icon">↑</div>
+      <h2>Файлды осы жерге сүйреңіз</h2>
+      <p>немесе файл таңдау үшін басыңыз</p>
+      <button class="btn primary" onclick="openUpload()">＋ Файл қосу</button>
+      <input id="fileInput" type="file" hidden>
+      <div class="progress-wrap" id="progressWrap"><div id="progress"></div></div>
+    </section>
+
+    <section class="toolbar">
+      <div class="search"><span>⌕</span><input id="search" placeholder="Файлдарды іздеу..." /></div>
+      <div class="filters">
+        <button class="filter active" data-cat="all">Барлығы</button>
+        <button class="filter" data-cat="pdf">PDF</button>
+        <button class="filter" data-cat="word">Word</button>
+        <button class="filter" data-cat="excel">Excel</button>
+        <button class="filter" data-cat="powerpoint">PowerPoint</button>
+        <button class="filter" data-cat="images">Суреттер</button>
+        <button class="filter" data-cat="archives">Архивтер</button>
+        <button class="filter" data-cat="other">Басқа</button>
+      </div>
+      <select id="sort">
+        <option value="newest">Алдымен жаңалары</option>
+        <option value="oldest">Алдымен ескілері</option>
+        <option value="name">Атауы бойынша</option>
+        <option value="size">Өлшемі бойынша</option>
+      </select>
+    </section>
+
+    <div class="section-title"><h2>Біздің материалдар</h2><span id="count"></span></div>
+    <section class="grid" id="grid"></section>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-card">
+      <button class="close" onclick="closeModal()">×</button>
+      <div class="modal-icon">⚗</div>
+      <h2>Файлды өшіру керек пе?</h2>
+      <p id="deleteName"></p>
+      <div class="modal-actions">
+        <button class="btn ghost" onclick="closeModal()">Бас тарту</button>
+        <button class="btn danger" id="confirmDelete">Өшіру</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
